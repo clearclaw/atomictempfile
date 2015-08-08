@@ -29,8 +29,6 @@ setup (
     author = "J C Lawrence",
     author_email = "claw@kanga.nu",
     url = "https://github.com/clearclaw/atomictempfile",
-    download_url = ("https://github.com/clearclaw/atomictempfile/tarball/%s.%s"
-                    % (__version_info__[0], __version_info__[1])),
     license = "LGPL v3.0",
     packages = find_packages (exclude = ["tests",]),
     package_data = {

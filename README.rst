@@ -10,8 +10,10 @@ A context manager for atomic file writes.
 AtomicTempFile
 --------------------
 
-A temporary file object which will be renamed to the specified
+A temporary file object which will be atomically renamed to the specified
 path on exit.
 
-    with AtomicTempFile('whatever') as f:
+     with AtomicTempFile('whatever') as f:
       f.write('stuff')
+
+This allows transactional behaviours with file writes.
