@@ -30,6 +30,7 @@ setup (
     author_email = "claw@kanga.nu",
     url = "https://github.com/clearclaw/atomictempfile",
     license = "LGPL v3.0",
+    test_suite = "tests", 
     packages = find_packages (exclude = ["tests",]),
     package_data = {
     },

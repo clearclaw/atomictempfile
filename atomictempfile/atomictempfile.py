@@ -5,6 +5,17 @@
 import logtool, os, tempfile
 
 class AtomicTempFile (object): # pylint: disable=R0903
+  """A temporary file object which will be atomically renamed to the
+  specified path on exit.  This allows transactional behaviours with
+  file writes.
+
+  Args:
+
+    final_path (string): path to the final file
+    **kargs (dict): Will be passed to :class:`tempfile.NamedTemporaryFile`.
+      As the tempoaray file will be created in the same directory as the final
+      file, the current process must have write access to that directory.
+  """
 
   @logtool.log_call
   def __init__(self, final_path, **kwargs):
@@ -13,7 +24,6 @@ class AtomicTempFile (object): # pylint: disable=R0903
       tmpfile_dir = os.path.dirname (final_path)
     self.tmpfile = tempfile.NamedTemporaryFile (dir = tmpfile_dir, **kwargs)
     self.final_path = final_path
-    # FIXME: Initialise the tempfile with the prior content?
 
   @logtool.log_call
   def __getattr__ (self, attr):
