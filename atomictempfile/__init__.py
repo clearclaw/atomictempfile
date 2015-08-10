@@ -1,5 +1,10 @@
 #! /usr/bin/env python
 
-import pyver
-__version__, __version_info__ = pyver.get_version (pkg = __name__)
+from __future__ import absolute_import
+from ._version import get_versions
+__version__ = get_versions()['version']
+__version_info__ = get_versions ()
+del get_versions
+
 from .atomictempfile import AtomicTempFile
+

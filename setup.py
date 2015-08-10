@@ -1,23 +1,14 @@
 #! /usr/bin/env python
 
-try:
-  import pyver
-except ImportError:
-  import pip
-  pip.main (['install', 'pyver'])
-  import pyver # pylint: disable=W0611
-
 from setuptools import setup, find_packages
-
-__version__, __version_info__ = pyver.get_version (
-    pkg = "atomictempfile",
-    public = True)
+import versioneer
 
 setup (
     name = "atomictempfile",
-    version = __version__,
+    version = versioneer.get_version (),
     description = "An atomic file write context manager",
     long_description = file ("README.rst").read (),
+    cmdclass = versioneer.get_cmdclass (),
     classifiers = [
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
