@@ -2,12 +2,13 @@
 
 from setuptools import setup, find_packages
 import versioneer
+from io import open
 
 setup (
     name = "atomictempfile",
     version = versioneer.get_version (),
     description = "An atomic file write context manager",
-    long_description = file ("README.rst").read (),
+    long_description = open ("README.rst", "r", encoding = "utf-8").read (),
     cmdclass = versioneer.get_cmdclass (),
     classifiers = [
         "Development Status :: 4 - Beta",
@@ -21,13 +22,14 @@ setup (
     author_email = "claw@kanga.nu",
     url = "https://github.com/clearclaw/atomictempfile",
     license = "LGPL v3.0",
-    test_suite = "tests", 
+    test_suite = "tests",
     packages = find_packages (exclude = ["tests",]),
     package_data = {
     },
     zip_safe = True,
     install_requires = [line.strip ()
-        for line in file ("requirements.txt").readlines ()],
+        for line in open ("requirements.txt", "r",
+                    encoding = "utf-8").readlines ()],
     entry_points = {
         "console_scripts": [
         ],
