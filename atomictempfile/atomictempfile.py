@@ -22,7 +22,8 @@ class AtomicTempFile (object): # pylint: disable=R0903
     tmpfile_dir = kwargs.pop ('dir', None)
     if tmpfile_dir is None:
       tmpfile_dir = os.path.dirname (final_path)
-    self.tmpfile = tempfile.NamedTemporaryFile (dir = tmpfile_dir, **kwargs)
+    self.tmpfile = tempfile.NamedTemporaryFile (dir = tmpfile_dir,
+                                                delete = False, **kwargs)
     self.final_path = final_path
 
   @logtool.log_call
