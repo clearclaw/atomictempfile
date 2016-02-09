@@ -1,4 +1,4 @@
-#! /usr/bin/envb python
+#! /usr/bin/env python
 
 # http://stackoverflow.com/questions/12003805/threadsafe-and-fault-tolerant-file-writes
 
@@ -12,7 +12,7 @@ class AtomicTempFile (object): # pylint: disable=R0903
   Args:
 
     final_path (string): path to the final file
-    **kargs (dict): Will be passed to :class:`tempfile.NamedTemporaryFile`.
+    **kwargs (dict): Will be passed to :class:`tempfile.NamedTemporaryFile`.
       As the tempoaray file will be created in the same directory as the final
       file, the current process must have write access to that directory.
   """
