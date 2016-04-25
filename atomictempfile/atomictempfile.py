@@ -40,4 +40,4 @@ class AtomicTempFile (object): # pylint: disable=R0903
     if exc_type is None:
       self.tmpfile.delete = False
       self.tmpfile.__exit__ (exc_type, exc_val, exc_tb)
-      os.rename (self.tmpfile.name, self.final_path)
+      os.rename (self.tmpfile.name, str (self.final_path)) # Grrr pathlib
